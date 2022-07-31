@@ -13,5 +13,5 @@
 #
 ---
 include:
-  - board: seeeduino_xiao
-    shield: two_percent_milk
+  - board: waveshare_rp2040_zero
+    shield: test_zero
