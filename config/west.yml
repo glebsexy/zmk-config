@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/zyumbik
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: zyumbik
+      revision: rp2040-zero
       import: app/west.yml
   self:
     path: config
