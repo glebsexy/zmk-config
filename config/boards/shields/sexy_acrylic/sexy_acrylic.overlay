@@ -61,14 +61,30 @@
   right_encoder: encoder_right {
     compatible = "alps,ec11";
     label = "RIGHT_ENCODER";
-    a-gpios = <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     resolution = <4>;
+  };
+
+  top_encoder: encoder_top {
+    compatible = "alps,ec11";
+    label = "TOP_ENCODER";
+    a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    resolution = <2>;
+  };
+
+  bottom_encoder: encoder_bottom {
+    compatible = "alps,ec11";
+    label = "BOTTOM_ENCODER";
+    a-gpios = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    resolution = <2>;
   };
 
   sensors {
     compatible = "zmk,keymap-sensors";
-    sensors = <&left_encoder &right_encoder>;
+    sensors = <&left_encoder &right_encoder &top_encoder &bottom_encoder>;
   };
 };
 
