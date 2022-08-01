@@ -1,0 +1,10 @@
+# Copyright (c) 2022 Gleb Sabirzyanov
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SEXY_ACRYLIC
+
+config ZMK_KEYBOARD_NAME
+	default "Sexy Acrylic Keyboard"
+
+endif
+

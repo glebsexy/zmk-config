@@ -15,3 +15,5 @@
 include:
   - board: waveshare_rp2040_zero
     shield: test_zero
+  - board: waveshare_rp2040_zero
+    shield: sexy_acrylic

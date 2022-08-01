@@ -1,0 +1,5 @@
+# Copyright (c) 2022 Gleb Sabirzyanov
+# SPDX-License-Identifier: MIT
+
+config SHIELD_SEXY_ACRYLIC
+	def_bool $(shields_list_contains,sexy_acrylic)
