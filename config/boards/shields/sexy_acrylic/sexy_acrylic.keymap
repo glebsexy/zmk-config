@@ -6,11 +6,16 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include "../../../../zmk-nodefree-config/helper.h"
 
 &left_encoder { status = "okay"; };
 &right_encoder { status = "okay"; };
 &top_encoder { status = "okay"; resolution = <2>; };
 &bottom_encoder { status = "okay"; resolution = <2>; };
+
+#define COMBO_TERM 20
+
+#include "combos.def"
 
 / {
     keymap {
