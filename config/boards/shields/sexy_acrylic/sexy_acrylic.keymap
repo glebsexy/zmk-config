@@ -13,6 +13,7 @@
 &top_encoder { status = "okay"; resolution = <2>; };
 &bottom_encoder { status = "okay"; resolution = <2>; };
 
+#undef COMBO_TERM
 #define COMBO_TERM 20
 #include "combos.def"
 
