@@ -3,3 +3,11 @@
 
 config SHIELD_SEXY_ACRYLIC
 	def_bool $(shields_list_contains,sexy_acrylic)
+
+config SYSTEM_WORKQUEUE_STACK_SIZE
+	int "work queue stack size"
+  default 4096
+
+config CONFIG_MAIN_STACK_SIZE
+	int "main stack size"
+  default 2048
