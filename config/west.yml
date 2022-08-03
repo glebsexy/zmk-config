@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: zmk
       remote: zyumbik
-      revision: rp2040-zero
+      revision: rp2040-zero-plus-combos-fix
       import: app/west.yml
   self:
     path: config
