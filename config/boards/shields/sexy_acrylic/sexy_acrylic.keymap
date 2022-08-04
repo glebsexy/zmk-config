@@ -23,6 +23,20 @@
 #define NAV 2
 
 / {
+
+    behaviors {
+        lt_e: layer_tap_quick {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_QUICK";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <100>;                      
+            quick-tap-ms = <100>;
+            bindings = <&mo>, <&kp>;
+            // hold-trigger-key-positions = <5 6 7 8 9 10>;    // <---[[right-hand keys]]
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         
@@ -32,7 +46,7 @@
                 &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI
                 &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
                 // left, middle, top, right
-                &kp LALT &kp LCMD &kp LCTRL &lt SYM SPACE
+                &kp LALT &kp LCMD &kp LCTRL &lt_e SYM SPACE
                 // Encoders: left & top, right & bottom
                 &kp ENTER &kp C_PLAY_PAUSE
                 // left, top, middle, right
