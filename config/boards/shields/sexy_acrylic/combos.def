@@ -12,9 +12,10 @@ ZMK_COMBO(shift_enter,   &kp LS(ENTER),           15 5,      0) // shift enter
 ZMK_COMBO(space,         &kp SPC,                 17 16,     0) // space 
 ZMK_COMBO(right,         &kp RIGHT,               3 13,      0) // arrow right 
 ZMK_COMBO(left,          &kp LEFT,                2 12,      0) // arrow left 
-ZMK_COMBO(alt_right,     &kp RA(RIGHT),           17 7,      0)
-ZMK_COMBO(alt_left,      &kp RA(LEFT),            6 16,      0) // alt left 
+ZMK_COMBO(alt_right,     &kp RA(RIGHT),           17 7,      0) // alt + arrow right
+ZMK_COMBO(alt_left,      &kp RA(LEFT),            6 16,      0) // alt + arrow left
 ZMK_COMBO(play,          &kp C_PLAY_PAUSE,        1 2 3,     0) // media play 
+ZMK_COMBO(capsword,      &caps_word,              20 29,     0) // caps word
 
 // symbols        
 ZMK_COMBO(minus,         &kp MINUS,               15 16,     0) 
@@ -22,8 +23,8 @@ ZMK_COMBO(equal,         &kp EQUAL,               5 6,       0)
 ZMK_COMBO(quote,         &kp SQT,                 25 26,     0)
 ZMK_COMBO(dot_ru,        &kp RA(RC(DOT)),         27 28,     0)
 ZMK_COMBO(comma_ru,      &kp RA(RC(COMMA)),       27 26 ,    0)
-ZMK_COMBO(right_sym,     &kp RA(RS(RBKT)),        3 13,      1) // → 
-ZMK_COMBO(left_sym,      &kp RA(RBKT),            2 12,      1)
+ZMK_COMBO(right_sym,     &kp RA(RBKT),            3 13,      1) // → 
+ZMK_COMBO(left_sym,      &kp RA(RS(RBKT)),        2 12,      1) // ←
 ZMK_COMBO(up_sym,        &kp RA(SQT),             2 3,       1) // ↑ 
 ZMK_COMBO(down_sym,      &kp RA(RS(SQT)),         12 13,     1) // ↓ 
 
