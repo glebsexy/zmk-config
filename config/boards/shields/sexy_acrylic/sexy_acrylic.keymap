@@ -56,7 +56,7 @@
                 &mt_q LCMD A    &kp S          &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt_q RALT SEMI
                 &mt_q LSHIFT Z  &mt_q LCTRL X  &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &mt_q RSHIFT SLASH
                 // left, middle, top, right
-                &kp LALT &kp LCMD &kp LCTRL &lt_q SYM SPACE
+                &kp LALT &mt_q LCMD SPACE &kp LCTRL &mo SYM
                 // Encoders: left & top, right & bottom
                 &kp RCMD &kp C_PLAY_PAUSE
                 // left, top, middle, right
