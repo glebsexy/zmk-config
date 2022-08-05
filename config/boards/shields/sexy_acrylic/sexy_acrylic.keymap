@@ -63,19 +63,20 @@
                 &mo NAV &kp RCTRL &kp RCMD &kp RSFT
             >;
 
+            // left, right, top, bottom
             sensor-bindings = <
                 &inc_dec_kp UP DOWN 
                 &inc_dec_kp LEFT RIGHT 
                 &inc_dec_kp C_VOL_UP C_VOL_DN 
-                &inc_dec_kp RIGHT LEFT
+                &inc_dec_kp RC(RIGHT) RC(LEFT)
             >;
         };
 
         layer_symbols {
             bindings = <
-                &kp LALT   &kp LA(LBKT) &kp LBRC  &kp RBRC  &kp GRAVE                &kp DEL  &kp N7 &kp N8 &kp N9 &kp N0
+                &kp LALT   &kp LA(LBKT) &kp LBRC  &kp RBRC  &kp GRAVE                &kp DEL   &kp N7 &kp N8 &kp N9 &kp N0
                 &kp LCMD   &kp LA(BSLH) &kp LPAR  &kp RPAR  &kp LA(SEMI)             &kp RCTRL &kp N4 &kp N5 &kp N6 &kp RALT
-                &kp LSHIFT &kp F        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD &kp N1 &kp N2 &kp N3 &kp RSHIFT
+                &kp LSHIFT &kp F        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD  &kp N1 &kp N2 &kp N3 &kp RSHIFT
                 // left middle top right
                 &bootloader &trans &trans &trans
                 // Encoders: left & top, right & bottom
@@ -86,15 +87,15 @@
 
             sensor-bindings = <
                 &inc_dec_kp UP DOWN 
-                &inc_dec_kp LEFT RIGHT 
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp RC(TAB) RC(TAB) 
+                &inc_dec_kp RC(TAB) RC(TAB) 
                 &inc_dec_kp RIGHT LEFT
             >;
         };
 
         layer_navigation {
             bindings = <
-                &kp LALT     &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT   &trans      &kp PAGE_UP     &trans     &kp UP     &trans      &trans
+                &kp LALT     &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT   &trans      &kp PAGE_UP     &kp F14    &kp UP     &kp F15     &kp RCTRL
                 &kp LCMD     &kp C_VOL_DN  &kp C_VOL_UP       &kp C_MUTE   &trans      &kp PAGE_DOWN   &kp LEFT   &kp DOWN   &kp RIGHT   &kp RALT
                 &kp LSHIFT   &kp C_BRI_DN  &kp C_BRI_UP       &kp F1       &kp F2      &kp RGUI        &trans     &trans     &kp RCTRL   &kp RSHIFT
                 // left, middle, top, right
@@ -107,8 +108,8 @@
 
             sensor-bindings = <
                 &inc_dec_kp UP DOWN 
-                &inc_dec_kp LEFT RIGHT 
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp RG(RA(LEFT)) RG(RA(RIGHT))
+                &inc_dec_kp RC(F6) RC(F7) 
                 &inc_dec_kp RIGHT LEFT
             >;
         };
