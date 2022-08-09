@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include "../../../../zmk-nodefree-config/helper.h"
+// https://github.com/urob/zmk-nodefree-config
 
 &left_encoder { status = "okay"; };
 &right_encoder { status = "okay"; };
@@ -22,45 +23,43 @@
 #define SYM 1
 #define NAV 2
 
+// hit space to go to default layer
+ZMK_BEHAVIOR(spc_def, macro,
+    bindings
+        = <&to DEF>
+        , <&kp SPACE>
+        ;
+)
+
+// https://zmk.dev/docs/behaviors/hold-tap
+
+// layer tap quick
+ZMK_BEHAVIOR(lt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&mo>, <&kp>;
+)
+
+// mod tap slow for command/ctrl
+ZMK_BEHAVIOR(mt_s, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    // prevent rolled mods if anything is pressed previously
+    global-quick-tap;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
+
+// mod tap quick for shift
+ZMK_BEHAVIOR(mt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
+
 / {
-
-    behaviors {
-
-        // https://zmk.dev/docs/behaviors/hold-tap
-
-        lt_q: layer_tap_quick {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_QUICK";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <100>;                      
-            quick-tap-ms = <100>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        mt_s: mod_tap_slow {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_TAP_QUICK";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <100>;   
-            // prevent rolled mods if anything is pressed previously         
-            global-quick-tap; 
-            quick-tap-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        mt_q: mod_tap_quick {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_TAP_QUICK";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <100>;           
-            quick-tap-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
         
