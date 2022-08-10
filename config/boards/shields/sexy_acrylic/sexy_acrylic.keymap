@@ -106,9 +106,9 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
 
         layer_symbols {
             bindings = <
-                &kp LALT   &kp LA(LBKT) &kp LBRC  &kp RBRC  &kp GRAVE                &kp DEL   &kp N7 &kp N8 &kp N9 &kp N0
-                &kp LCMD   &kp LA(BSLH) &kp LPAR  &kp RPAR  &kp LA(SEMI)             &kp RCTRL &kp N4 &kp N5 &kp N6 &kp RALT
-                &kp LSHIFT &kp F        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD  &kp N1 &kp N2 &kp N3 &kp RSHIFT
+                &kp LALT   &kp LA(LBKT) &kp LBRC  &kp RBRC  &kp GRAVE                &kp DEL   AS(N7) AS(N8) AS(N9) AS(N0)
+                &kp LCMD   &kp LA(BSLH) &kp LPAR  &kp RPAR  &kp LA(SEMI)             &kp RCTRL AS(N4) AS(N5) AS(N6) &kp RALT
+                &kp LSHIFT &kp F        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD  AS(N1) AS(N2) AS(N3) &kp RSHIFT
                 // left middle top right
                 &bootloader &mt_sp LCMD 0 &trans &trans
                 // Encoders: left & top, right & bottom
