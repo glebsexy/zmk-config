@@ -33,6 +33,13 @@ ZMK_BEHAVIOR(spc_def, macro,
         ;
 )
 
+ZMK_BEHAVIOR(mt_sp, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&mo>, <&spc_def>;
+)
+
 // https://zmk.dev/docs/behaviors/hold-tap
 
 // layer tap quick
@@ -53,15 +60,7 @@ ZMK_BEHAVIOR(autoshift, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
-ZMK_BEHAVIOR(mt_sp, hold_tap,
-    flavor = "hold-preferred";
-    tapping-term-ms = <100>;
-    quick-tap-ms = <100>;
-    bindings = <&mo>, <&spc_def>;
-)
-
 // mod tap slow for command/ctrl
-
 ZMK_BEHAVIOR(mt_s, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <100>;
@@ -90,17 +89,17 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
                 // left, middle, top, right
                 &kp LALT &mt_s LCMD SPACE &kp LCTRL &to SYM
                 // Encoders: left & top, right & bottom
-                &kp RCMD &kp C_PLAY_PAUSE
+                &mo NAV &kp C_PLAY_PAUSE
                 // left, top, middle, right
                 &to NAV &kp RCTRL &lt_q RCMD DEF &kp RSFT
             >;
 
             // left, right, top, bottom
             sensor-bindings = <
-                &inc_dec_kp UP DOWN 
-                &inc_dec_kp LEFT RIGHT 
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
-                &inc_dec_kp RC(RIGHT) RC(LEFT)
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp LEFT RIGHT // right
+                &inc_dec_kp C_VOL_UP C_VOL_DN // top
+                &inc_dec_kp RC(RIGHT) RC(LEFT) // bottom
             >;
         };
 
@@ -118,10 +117,10 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
             >;
 
             sensor-bindings = <
-                &inc_dec_kp UP DOWN 
-                &inc_dec_kp RC(TAB) RC(TAB) 
-                &inc_dec_kp RC(TAB) RC(TAB) 
-                &inc_dec_kp RIGHT LEFT
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp RC(RS(TAB)) RC(TAB) // right
+                &inc_dec_kp RC(RS(TAB)) RC(TAB) // top
+                &inc_dec_kp RIGHT LEFT // bottom
             >;
         };
 
@@ -139,10 +138,31 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
             >;
 
             sensor-bindings = <
-                &inc_dec_kp UP DOWN 
-                &inc_dec_kp RG(RA(LEFT)) RG(RA(RIGHT))
-                &inc_dec_kp RC(F6) RC(F7) 
-                &inc_dec_kp RIGHT LEFT
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp RG(RA(LEFT)) RG(RA(RIGHT)) // right
+                &inc_dec_kp C_BRI_UP C_BRI_DN // top
+                &inc_dec_kp RIGHT LEFT // bottom
+            >;
+        };
+
+        layer_test {
+            bindings = <
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans   &trans
+                // left, middle, top, right
+                &trans &trans &trans &trans
+                // Encoders: left & top, right & bottom
+                &trans &trans
+                // left, top, middle, right
+                &trans &trans &trans &trans
+            >;
+            
+            sensor-bindings = <
+                &inc_dec_kp UP DOWN  // left
+                &inc_dec_kp LEFT RIGHT  // right
+                &inc_dec_kp C_VOL_UP C_VOL_DN  // top
+                &inc_dec_kp RIGHT LEFT // bottom
             >;
         };
 
@@ -160,10 +180,10 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
             >;
             
             sensor-bindings = <
-                &inc_dec_kp UP DOWN 
-                &inc_dec_kp LEFT RIGHT 
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
-                &inc_dec_kp RIGHT LEFT
+                &inc_dec_kp UP DOWN  // left
+                &inc_dec_kp LEFT RIGHT  // right
+                &inc_dec_kp C_VOL_UP C_VOL_DN  // top
+                &inc_dec_kp RIGHT LEFT // bottom
             >;
         };
     };
