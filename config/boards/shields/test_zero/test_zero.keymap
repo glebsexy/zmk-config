@@ -14,7 +14,7 @@
         
         default_layer {
             bindings = <
-                &bl BL_TOG     &bl BL_CYCLE     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+                &bl BL_TOG     &bl BL_CYCLE     &bootloader     &kp R     &kp T     &bl BL_SET 50     &kp U     &kp I     &kp O     &kp P
 				&kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI
 				&kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT
 	    >;
