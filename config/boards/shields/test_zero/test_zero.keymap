@@ -14,8 +14,8 @@
         
         default_layer {
             bindings = <
-                &bl BL_TOG     &bl BL_CYCLE     &bootloader     &kp R     &kp T     &bl BL_SET 50
-	    >;
+                &kp N1     &kp N2     &kp N3     &kp N4   &kp N5     &kp N6     
+            >;
         };
     };
 };
