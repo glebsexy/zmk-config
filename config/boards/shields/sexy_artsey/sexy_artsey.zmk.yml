@@ -1,0 +1,8 @@
+file_format: "1"
+id: sexy_artsey
+name: sexy_artsey
+type: shield
+url: https://github.com/gleb_sexy/sexy_artsey/
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
