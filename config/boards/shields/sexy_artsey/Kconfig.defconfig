@@ -6,7 +6,7 @@ if SHIELD_SEXY_ARTSEY
 config ZMK_KEYBOARD_NAME
 	default "Sexy Artsey"
 
-config ZMK_SPLIT_ROLE_CENTRAL
+config ZMK_USB
 	default y
 
 endif
