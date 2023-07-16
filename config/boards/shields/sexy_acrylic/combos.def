@@ -40,4 +40,4 @@ ZMK_COMBO(undo,          &kp RG(Z),               24 23,     0) // undo
 ZMK_COMBO(fullscreen,    &kp F19,                 3 4 2,     0) // fullscreen 
 ZMK_COMBO(screenshot,    &kp F2,                  5 7,       0) // screenshot 
 ZMK_COMBO(language,      &kp RG(SPACE),           16 17 18,  0) // language switch 
-ZMK_COMBO(lay_num,       &to 1,                 26 27 28,  0) // nubers layer 
+ZMK_COMBO(lay_num,       &to 1,                   26 27 28,  0) // nubers layer 
