@@ -1,0 +1,8 @@
+file_format: "1"
+id: deathpad
+name: deathpad
+type: shield
+url: https://github.com/gleb_sexy/deathpad/
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
