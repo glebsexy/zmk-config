@@ -6,7 +6,7 @@ if SHIELD_DEATHPAD
 config ZMK_KEYBOARD_NAME
 	default "Deathpad"
 
-config ZMK_USB
-	default y
+# config ZMK_USB
+# 	default y
 
 endif
