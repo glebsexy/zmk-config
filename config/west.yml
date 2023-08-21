@@ -5,7 +5,7 @@ manifest:
     - name: glebsexy
       url-base: https://github.com/glebsexy
   projects:
-    - name: zmk_gleb
+    - name: zmk
       remote: glebsexy
       revision: add-rp2040-zero
       import: app/west.yml
