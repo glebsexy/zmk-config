@@ -18,4 +18,4 @@ include:
   - board: waveshare_rp2040_zero
     shield: sexy_acrylic
   - board: seeeduino_xiao_ble
-    shield: sexy_artsey
+    shield: deathpad
