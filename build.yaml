@@ -19,3 +19,5 @@ include:
     shield: sexy_acrylic
   - board: seeeduino_xiao_ble
     shield: deathpad
+  - board: seeeduino_xiao_ble
+    shield: tern_ble
