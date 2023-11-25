@@ -107,7 +107,7 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
                 &mt_q LSHIFT Z  &mt_s LCTRL X  &kp C     &kp V     &kp B       &kp N     &kp M     &kp COMMA &kp DOT   &mt_q RSHIFT SLASH
                 &kp LALT &mt_s LCMD SPACE
                 &mo NAV &kp C_PLAY_PAUSE
-                &lay_to_mo NAV NAV &lt_q RCMD
+                &lay_to_mo NAV NAV &lt_q RCMD SYM
             >;
 
             // left, right, top, bottom
