@@ -4,7 +4,7 @@
 if SHIELD_SAVIS_WARBLER
 
 config ZMK_KEYBOARD_NAME
-	default "Savi's Warbler"
+	default "Savi Warbler"
 
 endif
 
