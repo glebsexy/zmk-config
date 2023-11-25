@@ -1,0 +1,43 @@
+
+// ZMK_COMBO(name, bindings, keypos, layers) (ALL for all layers)
+// ZMK_COMBO(copy,  &dkp LC(C), 12 13, 0)
+
+ZMK_COMBO(bsp_word,      &kp LA(BSPC),            11 12 13,  0) 
+ZMK_COMBO(bsp_line,      &kp LG(BSPC),            10 11 12,  0)
+ZMK_COMBO(bsp,           &kp BSPC,                11 12,     0) 
+ZMK_COMBO(tab,           &kp TAB,                 14 24,     0) 
+ZMK_COMBO(esc,           &kp ESC,                 14 4,      0) 
+ZMK_COMBO(enter,         &kp ENTER,               15 25,     0)
+ZMK_COMBO(shift_enter,   &kp LS(ENTER),           15 5,      0) // shift enter 
+ZMK_COMBO(space,         &kp SPC,                 16 17,     0 1) // space 
+ZMK_COMBO(del_fwd,       &kp DEL,                 17 18,     0) // forward delete 
+ZMK_COMBO(right,         &kp RIGHT,               3 13,      0) // arrow right 
+ZMK_COMBO(left,          &kp LEFT,                2 12,      0) // arrow left 
+ZMK_COMBO(alt_right,     &kp RA(RIGHT),           17 7,      0) // alt + arrow right
+ZMK_COMBO(alt_left,      &kp RA(LEFT),            6 16,      0) // alt + arrow left
+ZMK_COMBO(play,          &kp C_PLAY_PAUSE,        1 2 3,     0) // media play 
+ZMK_COMBO(copy,          &kp RG(C),               12 22,     0)
+ZMK_COMBO(paste,         &kp RG(V),               13 23,     0)
+
+// symbols        
+ZMK_COMBO(minus,         &kp MINUS,               15 16,     0) 
+ZMK_COMBO(equal,         &kp EQUAL,               5 6,       0)
+ZMK_COMBO(quote,         &kp SQT,                 25 26,     0)
+ZMK_COMBO(dot_ru,        &kp RA(RC(DOT)),         27 28,     0 1)
+ZMK_COMBO(comma_ru,      &kp RA(RC(COMMA)),       27 26 ,    0 1)
+ZMK_COMBO(right_sym,     &kp RA(RBKT),            3 13,      1) // → 
+ZMK_COMBO(left_sym,      &kp RA(RS(RBKT)),        2 12,      1) // ←
+ZMK_COMBO(up_sym,        &kp RA(SQT),             2 3,       1) // ↑ 
+ZMK_COMBO(down_sym,      &kp RA(RS(SQT)),         12 13,     1) // ↓ 
+
+// Russian letters 
+ZMK_COMBO(ru_1,          &kp BACKSLASH,           8 9,       0) // ё 
+ZMK_COMBO(ru_2,          &kp LBKT,                6 7,       0) // х 
+ZMK_COMBO(ru_3,          &kp RBKT,                7 8,       0) // ъ 
+
+// commands
+ZMK_COMBO(undo,          &kp RG(Z),               24 23,     0) // undo 
+ZMK_COMBO(fullscreen,    &kp F19,                 3 4 2,     0) // fullscreen 
+ZMK_COMBO(screenshot,    &kp F2,                  5 7,       0) // screenshot 
+ZMK_COMBO(language,      &kp RG(SPACE),           16 17 18,  0) // language switch 
+ZMK_COMBO(lay_num,       &to 1,                   26 27 28,  0) // nubers layer 

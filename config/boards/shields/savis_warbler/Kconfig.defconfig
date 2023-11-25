@@ -1,0 +1,10 @@
+# Copyright (c) 2022 Gleb Sabirzyanov
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SAVIS_WARBLER
+
+config ZMK_KEYBOARD_NAME
+	default "Savi's Warbler"
+
+endif
+

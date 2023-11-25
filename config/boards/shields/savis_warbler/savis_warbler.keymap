@@ -1,0 +1,178 @@
+/*
+ * Copyright (c) 2022 Gleb Sabirzyanov
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include "../../../../zmk-nodefree-config/helper.h"
+// https://github.com/urob/zmk-nodefree-config
+
+&left_encoder { status = "okay"; };
+&right_encoder { status = "okay"; };
+&top_left_encoder { status = "okay"; resolution = <2>; };
+&top_right_encoder { status = "okay"; resolution = <2>; };
+
+#undef COMBO_TERM
+#define COMBO_TERM 20
+#include "combos.def"
+
+// Layers
+#define DEF 0
+#define SYM 1
+#define NAV 2
+
+// tap ctrl many times for bootloader
+ZMK_BEHAVIOR(ctrl_tap_bootloader, tap_dance,
+    tapping-term-ms = <100>;
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
+)
+
+// tap shift twice for capsword
+ZMK_BEHAVIOR(dt_capsword, tap_dance,
+    tapping-term-ms = <100>;
+    bindings = <&kp RSHIFT>, <&caps_word>;
+)
+
+// hit space to go to default layer
+ZMK_BEHAVIOR(spc_def, macro,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings =
+        <&kp SPACE>,
+        <&to DEF>
+        ;
+)
+
+ZMK_BEHAVIOR(mt_sp, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&mo>, <&spc_def>;
+)
+
+// https://zmk.dev/docs/behaviors/hold-tap
+
+// layer hold/keycode tap quick
+ZMK_BEHAVIOR(lt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&to>;
+)
+
+// quick layer toggle or momentary
+ZMK_BEHAVIOR(lay_to_mo, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    bindings = <&mo>, <&to>;
+)
+
+// Autoshift Macro
+#define AS(keycode) &autoshift LS(keycode) keycode     
+
+ZMK_BEHAVIOR(autoshift, hold_tap,
+    tapping_term_ms = <135>;
+    quick_tap_ms = <0>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+)
+
+// mod tap slow for command/ctrl
+ZMK_BEHAVIOR(mt_s, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <100>;
+    global-quick-tap;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
+
+// mod tap quick for shift
+ZMK_BEHAVIOR(mt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+        
+        layer_default {
+            bindings = <
+                                &kp W          &kp E     &kp R     &kp T       &kp Y     &kp U     &kp I     &kp O
+                &mt_s LCMD A    &kp S          &kp D     &kp F     &kp G       &kp H     &kp J     &kp K     &kp L     &mt_s RALT SEMI
+                &mt_q LSHIFT Z  &mt_s LCTRL X  &kp C     &kp V     &kp B       &kp N     &kp M     &kp COMMA &kp DOT   &mt_q RSHIFT SLASH
+                &kp LALT &mt_s LCMD SPACE
+                &mo NAV &kp C_PLAY_PAUSE
+                &lay_to_mo NAV NAV &lt_q RCMD
+            >;
+
+            // left, right, top, bottom
+            sensor-bindings = <
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp LEFT RIGHT // right
+                &inc_dec_kp C_VOL_UP C_VOL_DN // top
+                &inc_dec_kp RC(RIGHT) RC(LEFT) // bottom
+            >;
+        };
+
+        layer_symbols {
+            bindings = <
+                           &kp LA(LBKT) &kp LBRC  &kp RBRC  &kp GRAVE                &kp MINUS AS(N7) AS(N8) AS(N9)
+                &kp LCMD   &kp LA(BSLH) &kp LPAR  &kp RPAR  &kp LA(SEMI)             &kp EQUAL AS(N4) AS(N5) AS(N6) &kp RALT
+                &kp LSHIFT &kp F        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD  AS(N1) AS(N2) AS(N3) &kp RSHIFT
+                &trans &mt_sp LCMD 0 
+                &trans &trans
+                &trans &trans 
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp RC(RS(TAB)) RC(TAB) // right
+                &inc_dec_kp RC(RS(TAB)) RC(TAB) // top
+                &inc_dec_kp RIGHT LEFT // bottom
+            >;
+        };
+
+        layer_navigation {
+            bindings = <
+                             &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT   &trans      &kp PAGE_UP     &kp F14    &kp UP     &kp F15 
+                &kp LCMD     &kp C_VOL_DN  &kp C_VOL_UP       &kp C_MUTE   &trans      &kp PAGE_DOWN   &kp LEFT   &kp DOWN   &kp RIGHT   &kp RALT
+                &kp LSHIFT   &kp C_BRI_DN  &kp C_BRI_UP       &kp F1       &kp F2      &kp RGUI        &kp LG(C)  &kp LG(V)  &kp RCTRL   &kp RSHIFT
+                &trans &mt_sp LCMD
+                &trans &trans
+                &trans &trans 
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp UP DOWN // left
+                &inc_dec_kp RG(RA(LEFT)) RG(RA(RIGHT)) // right
+                &inc_dec_kp C_BRI_UP C_BRI_DN // top
+                &inc_dec_kp RIGHT LEFT // bottom
+            >;
+        };
+
+        layer_trans {
+            bindings = <
+                           &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans &trans
+                &trans &trans
+                &trans &trans
+            >;
+            
+            sensor-bindings = <
+                &inc_dec_kp UP DOWN  // left
+                &inc_dec_kp LEFT RIGHT  // right
+                &inc_dec_kp C_VOL_UP C_VOL_DN  // top
+                &inc_dec_kp RIGHT LEFT // bottom
+            >;
+        };
+    };
+};
+
+

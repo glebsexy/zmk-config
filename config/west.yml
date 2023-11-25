@@ -6,7 +6,7 @@ manifest:
       url-base: https://github.com/glebsexy
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: glebsexy
       revision: main
       import: app/west.yml
   self:
