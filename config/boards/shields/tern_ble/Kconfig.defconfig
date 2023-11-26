@@ -1,7 +1,7 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_TERN
+if SHIELD_TERN_BLE
 
 config ZMK_KEYBOARD_NAME
     default "Tern"
