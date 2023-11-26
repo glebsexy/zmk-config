@@ -59,7 +59,7 @@
 
         default_layer {
             bindings = <
-                           &kp W      &kp E       &kp R           &kp T        &kp H            &kp U          &kp I       &kp O
+                           &bt BT_CLR      &kp E       &kp R           &kp T        &kp H            &kp U          &kp I       &kp O
                 &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F     &kp G        &kp N            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm RGUI QUOT
                 &kp Z      &kp X      &kp C       &kp V                                         &kp M          &kp COMMA  &kp DOT     &kp SLASH
                                                   &lt NAV_L TAB  &kp RET       &lt NUM_L SPACE  &lt SYM_L BKSP
