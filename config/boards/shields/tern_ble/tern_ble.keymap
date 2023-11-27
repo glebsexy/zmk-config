@@ -123,9 +123,9 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
 
         layer_navigation {
             bindings = <
-                             &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT                                              &kp Y       &kp UP     &kp P 
-                &kp LCMD     &kp C_VOL_DN  &kp C_VOL_UP       &kp C_MUTE        &bt BT_SEL 1          &kp PAGE_DOWN   &kp LEFT    &kp DOWN   &kp RIGHT   &kp RALT
-                &kp LSHIFT   &kp Q         &kp T              &slowbt 0 BT_CLR  &bt BT_SEL 0          &kp RGUI        &kp Q       &kp T      &kp RCTRL   &kp RSHIFT
+                             &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT                                        &kp Y       &kp UP     &kp P 
+                &kp LCMD     &kp C_VOL_DN  &kp C_VOL_UP       &kp C_MUTE  &bt BT_SEL 1          &kp PAGE_DOWN   &kp LEFT    &kp DOWN   &kp RIGHT   &kp RALT
+                &kp LSHIFT   &kp Q         &kp T              &bt BT_CLR  &bt BT_SEL 0          &kp RGUI        &kp Q       &kp T      &kp RCTRL   &kp RSHIFT
                                                                          &trans &mt_sp LCMD                &trans &trans 
             >;
         };
