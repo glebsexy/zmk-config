@@ -102,7 +102,7 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
 / {
     keymap {
         compatible = "zmk,keymap";
-        
+        /*
         layer_default {
             bindings = <
                                 &kp W          &kp E     &kp R                           &kp U     &kp I     &kp O
@@ -111,7 +111,7 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
                                          &kp LALT &mt_s LCMD SPACE                 &lay_to_mo NAV NAV &lt_q RCMD SYM
             >;
         };
-
+*/
         layer_symbols {
             bindings = <
                            &kp LA(LBKT) &kp LBRC  &kp RBRC                                     AS(N7) AS(N8) AS(N9)
