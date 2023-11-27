@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 The ZMK Contributors
+ * Copyright (c) 2022 Gleb Sabirzyanov
  *
  * SPDX-License-Identifier: MIT
  */
@@ -7,94 +7,140 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "../../../../zmk-nodefree-config/helper.h"
+// https://github.com/urob/zmk-nodefree-config
 
-#define DEF_L 0
-#define NAV_L 1
-#define NUM_L 2
-#define SYM_L 3
+#undef COMBO_TERM
+#define COMBO_TERM 20
+#include "combos.def"
 
-// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
+// Layers
+#define DEF 0
+#define SYM 1
+#define NAV 2
+
+// tap ctrl many times for bootloader
+ZMK_BEHAVIOR(ctrl_tap_bootloader, tap_dance,
+    tapping-term-ms = <100>;
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
+)
+
+// tap shift twice for capsword
+ZMK_BEHAVIOR(dt_capsword, tap_dance,
+    tapping-term-ms = <100>;
+    bindings = <&kp RSHIFT>, <&caps_word>;
+)
+
+// hit space to go to default layer
+ZMK_BEHAVIOR(spc_def, macro,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings =
+        <&kp SPACE>,
+        <&to DEF>
+        ;
+)
+
+ZMK_BEHAVIOR(mt_sp, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&mo>, <&spc_def>;
+)
+
+// https://zmk.dev/docs/behaviors/hold-tap
+
+// layer hold/keycode tap quick
+ZMK_BEHAVIOR(lt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&to>;
+)
+
+// quick layer toggle or momentary
+ZMK_BEHAVIOR(lay_to_mo, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    bindings = <&mo>, <&to>;
+)
+
+// Autoshift Macro
+#define AS(keycode) &autoshift LS(keycode) keycode     
+
+ZMK_BEHAVIOR(autoshift, hold_tap,
+    tapping_term_ms = <135>;
+    quick_tap_ms = <0>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+)
+
+ZMK_BEHAVIOR(slowbt, hold_tap,
+    tapping_term_ms = <3000>;
+    quick_tap_ms = <0>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&bt>;
+)
+
+// mod tap slow for command/ctrl
+ZMK_BEHAVIOR(mt_s, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <100>;
+    global-quick-tap;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
+
+// mod tap quick for shift
+ZMK_BEHAVIOR(mt_q, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&kp>, <&kp>;
+)
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods";
-            #binding-cells = <2>;
-            tapping_term_ms = <225>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        combo_q {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp Q>;
-        };
-
-        combo_p {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&kp P>;
-        };
-
-        combo_b {
-            timeout-ms = <50>;
-            key-positions = <21 22>;
-            bindings = <&kp B>;
-        };
-
-        combo_y {
-            timeout-ms = <50>;
-            key-positions = <23 24>;
-            bindings = <&kp Y>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
-
-        default_layer {
+        
+        layer_default {
             bindings = <
-                           &bt BT_CLR      &kp E       &kp R           &kp T        &kp H            &kp U          &kp I       &kp O
-                &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F     &kp G        &kp N            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm RGUI QUOT
-                &kp Z      &kp X      &kp C       &kp V                                         &kp M          &kp COMMA  &kp DOT     &kp SLASH
-                                                  &lt NAV_L TAB  &kp RET       &lt NUM_L SPACE  &lt SYM_L BKSP
+                                &kp W          &kp E     &kp R                           &kp U     &kp I     &kp O
+                &mt_s LCMD A    &kp S          &kp D     &kp F     &kp G       &kp H     &kp J     &kp K     &kp L     &mt_s RALT SEMI
+                &mt_q LSHIFT Z  &mt_s LCTRL X  &kp C     &kp V     &kp B       &kp N     &kp M     &kp COMMA &kp DOT   &mt_q RSHIFT SLASH
+                                         &kp LALT &mt_s LCMD SPACE                 &lay_to_mo NAV NAV &lt_q RCMD SYM
             >;
         };
 
-        nav_layer {
-            label = "Nav";
+        layer_symbols {
             bindings = <
-                           &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp UARW &kp PG_UP
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp LARW       &kp DARW &kp RARW   &trans
-                &trans     &trans     &trans      &trans                                        &kp END        &trans   &kp PG_DN  &trans
-                                                  &trans          &trans       &kp ESC          &kp DEL
+                           &kp LA(LBKT) &kp LBRC  &kp RBRC                                     AS(N7) AS(N8) AS(N9)
+                &kp LCMD   &kp LA(BSLH) &kp LPAR  &kp RPAR  &kp LA(SEMI)             &kp EQUAL AS(N4) AS(N5) AS(N6) &kp RALT
+                &kp LSHIFT &kp T        &kp LBKT  &kp RBKT  &kp LS(LA(MINUS))        &kp RCMD  AS(N1) AS(N2) AS(N3) &kp RSHIFT
+                                                       &trans &mt_sp LCMD 0      &trans &trans 
             >;
         };
 
-        num_layer {
-            label = "Num";
+        layer_navigation {
             bindings = <
-                           &kp N7     &kp N8      &kp N9          &kp RBKT      &trans          &trans         &trans      &trans
-                &kp SEMI   &kp N4     &kp N5      &kp N6          &kp EQUAL     &trans          &trans         &trans      &trans     &trans
-                &kp LBKT   &kp N1     &kp N2      &kp N3                                        &trans         &trans      &trans     &trans
-                                                  &kp N0          &kp MINUS     &trans          &trans
+                             &kp C_PREV    &kp C_PLAY_PAUSE   &kp C_NEXT                                              &kp Y       &kp UP     &kp P 
+                &kp LCMD     &kp C_VOL_DN  &kp C_VOL_UP       &kp C_MUTE        &bt BT_SEL 1          &kp PAGE_DOWN   &kp LEFT    &kp DOWN   &kp RIGHT   &kp RALT
+                &kp LSHIFT   &kp Q         &kp T              &slowbt 0 BT_CLR  &bt BT_SEL 0          &kp RGUI        &kp Q       &kp T      &kp RCTRL   &kp RSHIFT
+                                                                         &trans &mt_sp LCMD                &trans &trans 
             >;
         };
 
-        sym_layer {
-            label = "Sym";
+        layer_trans {
             bindings = <
-                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
-                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
-                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
-                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+                           // 0       1          2                                     3          4          5
+                           &trans     &trans     &trans                                &trans     &trans     &trans
+                // 6       7          8          9          10              11         12         13         14         15
+                &trans     &trans     &trans     &trans     &trans          &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans          &trans     &trans     &trans     &trans     &trans
+                                                     // 26  27         28     29
+                                                     &trans &trans     &trans &trans
             >;
+            
         };
     };
 };
