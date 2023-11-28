@@ -12,7 +12,7 @@
 
 #undef COMBO_TERM
 #define COMBO_TERM 20
-#include "combos.def"
+// #include "combos.def"
 
 // Layers
 #define DEF 0
