@@ -28,7 +28,7 @@ ZMK_COMBO(up_sym,        &kp RA(SQT),             1 2,       1) // ↑
 ZMK_COMBO(down_sym,      &kp RA(RS(SQT)),         8 9,       1) // ↓ 
 
 // Russian letters 
-ZMK_COMBO(ru_1,          &kp BACKSLASH,           13 14,     0) // ё 
+ZMK_COMBO(ru_1,          &kp BACKSLASH,           5 15,      0) // ё 
 ZMK_COMBO(ru_2,          &kp LBKT,                3 4,       0) // х 
 ZMK_COMBO(ru_3,          &kp RBKT,                4 5,       0) // ъ 
 
