@@ -3,14 +3,14 @@
 // ZMK_COMBO(copy,  &dkp LC(C), 12 13, 0)
 
 ZMK_COMBO(bsp_word,      &kp LA(BSPC),            7 8 9,   0) 
-ZMK_COMBO(bsp_line,      &kp LG(BSPC),            10 7 8,  0)
+ZMK_COMBO(bsp_line,      &kp LG(BSPC),            6 7 8,  0)
 ZMK_COMBO(bsp,           &kp BSPC,                7 8,     0) 
 ZMK_COMBO(tab,           &kp TAB,                 10 20,   0) 
 ZMK_COMBO(esc,           &kp ESC,                 0 7,     0) 
-ZMK_COMBO(enter,         &kp ENTER,               25,      0)
+ZMK_COMBO(enter,         &kp ENTER,               12 21    0)
 ZMK_COMBO(shift_enter,   &kp LS(ENTER),           11 21,   0) // shift enter 
 ZMK_COMBO(space,         &kp SPC,                 12 13,   0 1) // space 
-// ZMK_COMBO(del_fwd,       &kp DEL,                 13 14,   0) // forward delete 
+ZMK_COMBO(del_fwd,       &kp DEL,                 13 14,   0) // forward delete 
 ZMK_COMBO(left,          &kp LEFT,                1 8,     0) // arrow left 
 ZMK_COMBO(right,         &kp RIGHT,               2 9,     0) // arrow right 
 ZMK_COMBO(alt_left,      &kp RA(LEFT),            3 12,      0) // alt + arrow left

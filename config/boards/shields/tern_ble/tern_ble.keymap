@@ -50,12 +50,20 @@ ZMK_BEHAVIOR(mt_sp, hold_tap,
 
 // https://zmk.dev/docs/behaviors/hold-tap
 
-// layer hold/keycode tap quick
+// keycode hold/layer tap quick
 ZMK_BEHAVIOR(lt_q, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <100>;
     quick-tap-ms = <100>;
     bindings = <&kp>, <&to>;
+)
+
+// layer hold/keycode tap quick
+ZMK_BEHAVIOR(lh_kt, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <100>;
+    quick-tap-ms = <100>;
+    bindings = <&to>, <&kp>;
 )
 
 // quick layer toggle or momentary
@@ -101,7 +109,7 @@ ZMK_BEHAVIOR(mt_q, hold_tap,
                                 &kp W          &kp E         &kp R                           &kp U     &kp I     &kp O
                 &mt_s LCMD A    &kp S          &kp D         &kp F     &kp G       &kp H     &kp J     &kp K     &kp L            &mt_s RALT SEMI
                 &mt_q LSHIFT Z  &mt_s LCTRL X  &mt_s LALT C  &kp V     &kp B       &kp N     &kp M     &kp COMMA &mt_s RCTRL DOT  &mt_q RSHIFT SLASH
-                                         &kp LCMD &lt_q SPACE SYM                     &lay_to_mo NAV NAV &kp RCMD
+                                         &kp LCMD &lh_kt SYM SPACE                     &lay_to_mo NAV NAV &kp RCMD
             >;
         };
 
