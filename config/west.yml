@@ -6,8 +6,12 @@ manifest:
       url-base: https://github.com/glebsexy
   projects:
     - name: zmk
-      remote: glebsexy
-      revision: add-rp2040-zero
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
+    # - name: zmk
+    #   remote: glebsexy
+    #   revision: add-rp2040-zero
+    #   import: app/west.yml
   self:
     path: config

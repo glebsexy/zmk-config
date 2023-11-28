@@ -15,11 +15,11 @@
 include:
 #  - board: waveshare_rp2040_zero
 #    shield: test_zero
-  - board: waveshare_rp2040_zero
-    shield: sexy_acrylic
-  - board: waveshare_rp2040_zero
-    shield: savis_warbler
-  - board: seeeduino_xiao_ble
-    shield: deathpad
+  # - board: waveshare_rp2040_zero
+    # shield: sexy_acrylic
+  # - board: waveshare_rp2040_zero
+    # shield: savis_warbler
+  # - board: seeeduino_xiao_ble
+    # shield: deathpad
   - board: seeeduino_xiao_ble
     shield: tern_ble
