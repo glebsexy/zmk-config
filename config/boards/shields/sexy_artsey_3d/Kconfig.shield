@@ -3,6 +3,3 @@
 
 config SHIELD_SEXY_ARTSEY_3D
 	def_bool $(shields_list_contains,sexy_artsey_3d)
-
-config CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS
-  default 8000
