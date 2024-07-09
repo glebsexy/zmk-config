@@ -69,7 +69,20 @@
     input-gpios
     = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    , <&xiao_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     ;
   };
 
+  main_encoder: encoder_main {
+    compatible = "alps,ec11";
+    label = "MAIN_ENCODER";
+    a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    resolution = <4>;
+  };
+
+  sensors {
+    compatible = "zmk,keymap-sensors";
+    sensors = <&main_encoder>;
+  };
 };
