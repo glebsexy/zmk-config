@@ -39,7 +39,7 @@
     // Include the direct GPIO driver...
     direct {
       kscan = <&kscan2>;
-      column-offset = <4>; // ...and shift it to not overlap
+      row-offset = <2>; // ...and shift it to not overlap
     };
   };
 
@@ -78,7 +78,7 @@
     label = "MAIN_ENCODER";
     a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    resolution = <4>;
+    resolution = <2>;
   };
 
   sensors {
