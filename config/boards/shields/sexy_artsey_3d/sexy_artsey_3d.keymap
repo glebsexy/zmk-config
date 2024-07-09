@@ -20,7 +20,7 @@
 			bindings = <
 			  &kp A     &kp R     &kp T     &kp S     &kp N1
 			  &kp E     &kp Y     &kp I     &kp O     &kp N2
-			  &kp N3
+			  &bt BT_CLR
 			>;
 		};
 
