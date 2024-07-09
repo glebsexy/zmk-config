@@ -4,6 +4,6 @@
 if SHIELD_SEXY_ARTSEY_3D
 
 config ZMK_KEYBOARD_NAME
-	default "Sexy Artsey"
+	default "Sexy Artsey 3D"
 
 endif
