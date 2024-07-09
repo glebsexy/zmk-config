@@ -1,0 +1,12 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SEXY_ARTSEY_3D
+
+config ZMK_KEYBOARD_NAME
+	default "Sexy Artsey"
+
+config ZMK_USB
+	default y
+
+endif
