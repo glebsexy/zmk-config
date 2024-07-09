@@ -1,6 +1,6 @@
 file_format: "1"
-id: sexy_artsey
-name: sexy_artsey
+id: sexy_artsey_3d
+name: sexy_artsey_3d
 type: shield
 url: https://github.com/gleb_sexy/sexy_artsey/
 requires: [seeeduino_xiao_ble]
