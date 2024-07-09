@@ -29,7 +29,7 @@
     label = "KSCAN0";
 
     rows = <2>;
-    columns = <5>;
+    columns = <6>;
 
     // Include the matrix driver
     matrix {
