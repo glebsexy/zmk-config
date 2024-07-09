@@ -28,8 +28,8 @@
     compatible = "zmk,kscan-composite";
     label = "KSCAN0";
 
-    rows = <2>;
-    columns = <6>;
+    rows = <3>;
+    columns = <4>;
 
     // Include the matrix driver
     matrix {
