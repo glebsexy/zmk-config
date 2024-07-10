@@ -7,6 +7,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "../../../../zmk-nodefree-config/helper.h"
+// https://github.com/urob/zmk-nodefree-config
 
 #define ARDUX_LEFT 1
 
@@ -30,22 +32,28 @@
     status = "okay";
 };
 
+// tap ctrl many times for bootloader
+ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
+    tapping-term-ms = <100>;
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
+)
+
 #define CUSTOM_THUMB \
-    &kp SPACE &kp ENTER &bootloader
+    &kp SPACE &kp ENTER &many_tap_bootloader
 
 #define ARDUX_LAYER_CUSTOM                                          \
-		custom {                                                       \
-			label = "Custom";                                          \
-			bindings = <                                               \
-				LEADING_NONES                                          \
-				&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
-				MIDDLE_NONES                                           \
-				&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp PSCRN &sk RSHFT  \
-				TRAILING_NONES                                         \
-				CUSTOM_THUMB                                           \
-			>;                                                         \
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;        \
-		};
+	custom {                                                       \
+		label = "Custom";                                          \
+		bindings = <                                               \
+			LEADING_NONES                                          \
+			&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
+			MIDDLE_NONES                                           \
+			&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp PSCRN &sk RSHFT  \
+			TRAILING_NONES                                         \
+			CUSTOM_THUMB                                           \
+		>;                                                         \
+		sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;        \
+	};
 
 // Include main ardux.io keymap
 #include "../../../ardux.dtsi"
