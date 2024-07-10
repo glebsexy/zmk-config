@@ -23,11 +23,10 @@
 				&kp N9     &kp N0     &kp A
 			>;
 
-			// left, right, top, bottom
-	    sensor-bindings = <
-		    &inc_dec_kp C_VOL_UP C_VOL_DN
-	    >;
+			sensor-bindings = <
+				&inc_dec_kp C_VOL_UP C_VOL_DN
+			>;
 		};
-		
+
 	};
 };
