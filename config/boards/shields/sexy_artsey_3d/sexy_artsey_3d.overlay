@@ -26,7 +26,6 @@
 
   kscan0: kscan_composite {
     compatible = "zmk,kscan-composite";
-    label = "KSCAN0";
 
     rows = <3>;
     columns = <4>;
@@ -45,7 +44,6 @@
 
   kscan1: kscan_matrix {
     compatible = "zmk,kscan-gpio-matrix";
-    label = "KSCAN1";
     diode-direction = "col2row";
 
     row-gpios
@@ -56,15 +54,14 @@
     col-gpios
     = <&xiao_d 0 GPIO_ACTIVE_HIGH>
     , <&xiao_d 1 GPIO_ACTIVE_HIGH>
-    , <&xiao_d 2 GPIO_ACTIVE_HIGH>
     , <&xiao_d 3 GPIO_ACTIVE_HIGH>
+    , <&xiao_d 2 GPIO_ACTIVE_HIGH>
     ;
 
   };
 
   kscan2: kscan_direct {
     compatible = "zmk,kscan-gpio-direct";
-    label = "KSCAN2";
 
     input-gpios
     = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -75,10 +72,9 @@
 
   main_encoder: encoder_main {
     compatible = "alps,ec11";
-    label = "MAIN_ENCODER";
+
     a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    resolution = <2>;
   };
 
   sensors {
