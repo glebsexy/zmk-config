@@ -30,12 +30,22 @@
     status = "okay";
 };
 
-&sensor-bindings = <
-	&inc_dec_kp C_VOL_UP C_VOL_DN
->;
-
 #define CUSTOM_THUMB \
     &kp SPACE &kp ENTER
+
+#define ARDUX_LAYER_CUSTOM                                          \
+		custom {                                                       \
+			label = "Custom";                                          \
+			bindings = <                                               \
+				LEADING_NONES                                          \
+				&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
+				MIDDLE_NONES                                           \
+				&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp PSCRN &sk RSHFT  \
+				TRAILING_NONES                                         \
+				CUSTOM_THUMB                                           \
+			>;                                                         \
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;        \
+		};
 
 // Include main ardux.io keymap
 #include "../../../ardux.dtsi"
