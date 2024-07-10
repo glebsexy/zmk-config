@@ -6,3 +6,4 @@ url: https://github.com/gleb_sexy/sexy_artsey/
 requires: [seeeduino_xiao_ble]
 features:
   - keys
+  - encoder
