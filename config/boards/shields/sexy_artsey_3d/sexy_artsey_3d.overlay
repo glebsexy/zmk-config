@@ -61,11 +61,11 @@
   left_encoder: encoder_left {
     compatible = "alps,ec11";
 
-    a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    a-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
   };
 
-  sensors: sensors {
+  sensors {
     compatible = "zmk,keymap-sensors";
     sensors = <&left_encoder>;
     triggers-per-rotation = <20>;
