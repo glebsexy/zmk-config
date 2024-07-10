@@ -31,7 +31,7 @@
 };
 
 #define CUSTOM_THUMB \
-    &kp SPACE &kp ENTER
+    &kp SPACE &kp ENTER &bootloader
 
 #define ARDUX_LAYER_CUSTOM                                          \
 		custom {                                                       \
