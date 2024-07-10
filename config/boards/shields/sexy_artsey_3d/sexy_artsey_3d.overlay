@@ -55,22 +55,23 @@
     = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&xiao_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    , <&xiao_d 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     ;
   };
 
-  left_encoder: encoder_left {
-    compatible = "alps,ec11";
+  // left_encoder: encoder_left {
+  //   compatible = "alps,ec11";
 
-    a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-  };
+  //   a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+  //   b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+  // };
 
-  sensors {
-    compatible = "zmk,keymap-sensors";
-    sensors = <&left_encoder>;
-  };
+  // sensors {
+  //   compatible = "zmk,keymap-sensors";
+  //   sensors = <&left_encoder>;
+  // };
 };
 
-&left_encoder {
-    status = "okay";
-};
+// &left_encoder {
+//     status = "okay";
+// };
