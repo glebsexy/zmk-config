@@ -8,8 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-&main_encoder { status = "okay"; };
-
 #define DEFAULT 0
 
 / {
