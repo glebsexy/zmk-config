@@ -23,4 +23,3 @@ include:
     # shield: deathpad
   - board: seeeduino_xiao_ble
     shield: sexy_artsey_3d
-    snippet: zmk-usb-logging
