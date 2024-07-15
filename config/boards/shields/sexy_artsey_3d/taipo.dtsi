@@ -1,6 +1,6 @@
 // https://github.com/dlip/zmk-taipo/blob/main/config/taipo.dtsi
 
-#define TCOMBO(NAME, BINDINGS, OUTER_BINDINGS, INNER_BINDINGS, BOTH_BINDINGS, LEFT_KEYPOS) \
+#define TCOMBO(NAME, BINDINGS, INNER_BINDINGS, OUTER_BINDINGS, BOTH_BINDINGS, LEFT_KEYPOS) \
 combo_l_##NAME { \
   timeout-ms = <COMBO_TIMEOUT>; \
   bindings = <BINDINGS>; \
@@ -27,7 +27,7 @@ combo_lb_##NAME { \
 };
 
 
-//             single      • outer     • inner     • both
+//             single      • inner     • outer     • both
 TCOMBO(R,      &kp R,      &kp LS(R),  &kp GT,     &kp PSCRN,    TLP)
 TCOMBO(S,      &kp S,      &kp LS(S),  &kp RBRC,   &kp C_BRI_UP, TLR)
 TCOMBO(N,      &kp N,      &kp LS(N),  &kp RBKT,   &kp C_BRI_DN, TLM)

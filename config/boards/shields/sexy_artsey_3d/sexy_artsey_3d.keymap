@@ -28,8 +28,8 @@
 #define BLM 6 // BOTTOM MIDDLE
 #define BLR 5 // BOTTOM RING
 #define BLP 4 // BOTTOM PINKY
-#define LOT 8 // O-THUMB
-#define LIT 9 // I-THUMB
+#define LOT 9 // O-THUMB
+#define LIT 8 // I-THUMB
 
 &sk {
     release-after-ms = <STICKY_TIMEOUT>;
