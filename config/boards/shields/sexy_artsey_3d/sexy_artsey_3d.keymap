@@ -30,21 +30,27 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 #define STICKY_TIMEOUT 500
 
 // LEFT SIDE
-#define TLI 0 // TOP INDEX
-#define TLM 1 // TOP MIDDLE
-#define TLR 2 // TOP RING
-#define TLP 3 // TOP PINKY
-#define BLI 4 // BOTTOM INDEX
-#define BLM 5 // BOTTOM MIDDLE
-#define BLR 6 // BOTTOM RING
-#define BLP 7 // BOTTOM PINKY
+#define TLI 3 // TOP INDEX
+#define TLM 2 // TOP MIDDLE
+#define TLR 1 // TOP RING
+#define TLP 0 // TOP PINKY
+#define BLI 7 // BOTTOM INDEX
+#define BLM 6 // BOTTOM MIDDLE
+#define BLR 5 // BOTTOM RING
+#define BLP 4 // BOTTOM PINKY
 #define LOT 9 // O-THUMB
 #define LIT 8 // I-THUMB
+
+#define DEF 0
+#define NAV 1
+#define SYM 2
 
 &sk {
     release-after-ms = <STICKY_TIMEOUT>;
     quick-release;
 };
+
+ZMK_COMBO(lay_nav,      &to NAV,     LIT,    DEF)
 
 / {
   combos {
@@ -62,6 +68,15 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
         &none       &none        &many_tap_bootloader
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
+
+    nav {
+      bindings = <
+        &kp LSHIFT    &kp LALT      &kp UP        &kp DOWN
+        &kp LCMD      &kp LCTRL     &kp RIGHT     &kp LEFT
+        &to DEF       &none        &many_tap_bootloader
+      >;
+      sensor-bindings = <&inc_dec_kp UP DOWN>;
     };
   };
 };
