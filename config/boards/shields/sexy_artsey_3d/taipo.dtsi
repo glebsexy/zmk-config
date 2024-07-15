@@ -81,10 +81,10 @@ TCOMBO(TAB,    &kp TAB,    &kp DEL,    &kp INS,    &bt BT_CLR,   TLR TLM TLI)
 TCOMBO(ENTER,  &kp ENTER,  &kp ESC,    &kp LALT,   &bootloader,  BLR BLM BLI)
 
 // mods & arrows
-TCOMBO(LGUI,   &kt LGUI,   &kp RIGHT,  &kp PGUP,   &bt BT_SEL 3, TLP BLP)
-TCOMBO(LALT,   &kt LALT,   &kp UP,     &kp HOME,   &bt BT_SEL 2, TLR BLR)
-TCOMBO(LCTRL,  &kt LCTRL,  &kp DOWN,   &kp END,    &bt BT_SEL 1, TLM BLM)
-TCOMBO(LSHIFT, &kt LSHIFT, &kp LEFT,   &kp PGDN,   &bt BT_SEL 0, TLI BLI)
+TCOMBO(LGUI,   &kt LGUI,   &kp RIGHT,  &sk LGUI,   &bt BT_SEL 3, TLP BLP)
+TCOMBO(LALT,   &kt LALT,   &kp UP,     &sk LALT,   &bt BT_SEL 2, TLR BLR)
+TCOMBO(LCTRL,  &kt LCTRL,  &kp DOWN,   &sk LCTRL,  &bt BT_SEL 1, TLM BLM)
+TCOMBO(LSHIFT, &kt LSHIFT, &kp LEFT,   &sk LSHIFT, &bt BT_SEL 0, TLI BLI)
 
 // my combos
 TCOMBO(BSP, &kp BSPC, &kp LA(BSPC), &kp LG(BSPC), &none,  BLP BLR BLM)
