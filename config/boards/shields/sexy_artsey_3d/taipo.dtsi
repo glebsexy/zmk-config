@@ -27,20 +27,6 @@ combo_lb_##NAME { \
 };
 
 
-combo_l_space { \
-  timeout-ms = <COMBO_TIMEOUT>; \
-  bindings = <&kp SPACE>; \
-  key-positions = <LOT>; \
-  layers = <COMBO_LAYERS>; \
-};
-
-// combo_l_bspc { \
-//   timeout-ms = <COMBO_TIMEOUT>; \
-//   bindings = <&kp BSPC>; \
-//   key-positions = <LIT>; \
-//   layers = <COMBO_LAYERS>; \
-// };
-
 //             single      • outer     • inner     • both
 TCOMBO(R,      &kp R,      &kp LS(R),  &kp GT,     &kp PSCRN,    TLP)
 TCOMBO(S,      &kp S,      &kp LS(S),  &kp RBRC,   &kp C_BRI_UP, TLR)

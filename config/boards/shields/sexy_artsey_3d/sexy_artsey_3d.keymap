@@ -47,6 +47,7 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 )
 
 ZMK_COMBO(lay_nav,      &to NAV,     LIT,              DEF)
+ZMK_COMBO(thumb_space,  &kp SPACE,   LOT,              DEF)
 ZMK_COMBO(all_reset,    &m_reset,    BLP BLR BLM BLI,  DEF)
 
 / {
