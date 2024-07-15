@@ -57,9 +57,9 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 
     base {
       bindings = <
-        &none           &none            &none             &none
-        &none           &none            &none             &none
-        &kp LSHIFT &kp ENTER &many_tap_bootloader
+        &none       &none        &none         &none
+        &none       &none        &none         &none
+        &none       &none        &many_tap_bootloader
       >;
     };
   };

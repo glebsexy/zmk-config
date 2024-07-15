@@ -22,7 +22,7 @@ combo_lb_##NAME { \
   bindings = <BOTH_BINDINGS>; \
   key-positions = <LEFT_KEYPOS LIT LOT>; \
   layers = <COMBO_LAYERS>; \
-}; \
+};
 
 
 combo_l_space { \
