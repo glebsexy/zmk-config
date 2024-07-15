@@ -38,8 +38,8 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 #define BLM 6 // BOTTOM MIDDLE
 #define BLR 5 // BOTTOM RING
 #define BLP 4 // BOTTOM PINKY
-#define LOT 9 // O-THUMB
-#define LIT 8 // I-THUMB
+#define LOT 8 // O-THUMB
+#define LIT 9 // I-THUMB
 
 #define DEF 0
 #define NAV 1
