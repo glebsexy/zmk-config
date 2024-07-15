@@ -347,9 +347,6 @@
 				CUSTOM_THUMB
 				#endif
 			>;
-			#if defined SENSOR_BINDINGS
-			sensor-bindings = <SENSOR_BINDINGS>;
-			#endif
 		};
 		#endif
 		numbers {
@@ -366,9 +363,9 @@
 			label = "Symbol";
 			bindings = <
 				LEADING_NONES
-				&kp EXCL                                            &kp BSLH  &kp SEMI  &kp GRAVE
+				&kp EXCL                &kp BSLH  &kp SEMI  &kp GRAVE
 				MIDDLE_NONES
-				&mo LAYER_ID_SYMBOLS                                &kp QMARK &kp MINUS &kp EQUAL
+				&mo LAYER_ID_SYMBOLS    &kp QMARK &kp MINUS &kp EQUAL
 				TRAILING_NONES
 			>;
 		};
@@ -376,9 +373,9 @@
 			label = "Paren";
 			bindings = <
 				LEADING_NONES
-				&mo LAYER_ID_PARENTHETICALS                         &kp LPAR  &kp RPAR  &kp LBRC
+				&mo LAYER_ID_PARENTHETICALS     &kp LPAR  &kp RPAR  &kp LBRC
 				MIDDLE_NONES
-				&none                                               &kp LBKT  &kp RBKT  &kp RBRC
+				&none                           &kp LBKT  &kp RBKT  &kp RBRC
 				TRAILING_NONES
 			>;
 		};
@@ -386,9 +383,9 @@
 			label = "Nav";
 			bindings = <
 				LEADING_NONES
-				&kp HOME                                            &kp UP    &kp END   &kp PG_UP
+				&kp HOME     &kp UP    &kp END   &kp PG_UP
 				MIDDLE_NONES
-				&kp LEFT                                            &kp DOWN  &kp RIGHT &kp PG_DN
+				&kp LEFT     &kp DOWN  &kp RIGHT &kp PG_DN
 				TRAILING_NONES
 			>;
 		};
@@ -461,6 +458,8 @@
 			>;
 		};
 		#else
+
+		
 		base {
 			label = "ARDUX";
 			bindings = <
@@ -473,15 +472,18 @@
 				CUSTOM_THUMB
 				#endif
 			>;
+			#if defined SENSOR_BINDINGS
+			sensor-bindings = <SENSOR_BINDINGS>;
+			#endif
 		};
 		#endif
 		numbers {
 			label = "Number";
 			bindings = <
 				LEADING_NONES
-				&mo LAYER_ID_NUMBERS                        &kp N3    &kp N2    &kp N1
+				&mo LAYER_ID_NUMBERS  &kp N3    &kp N2    &kp N1
 				MIDDLE_NONES
-				&none                                       &kp N6    &kp N5    &kp N4
+				&none                 &kp N6    &kp N5    &kp N4
 				TRAILING_NONES
 			>;
 		};
@@ -489,9 +491,9 @@
 			label = "Symbol";
 			bindings = <
 				LEADING_NONES
-				&kp GRAVE                                   &kp SEMI  &kp BSLH  &kp EXCL
+				&kp GRAVE       &kp SEMI  &kp BSLH  &kp EXCL
 				MIDDLE_NONES
-				&kp EQUAL                                   &kp MINUS &kp QMARK &mo LAYER_ID_SYMBOLS
+				&kp EQUAL       &kp MINUS &kp QMARK &mo LAYER_ID_SYMBOLS
 				TRAILING_NONES
 			>;
 		};
@@ -499,9 +501,9 @@
 			label = "Paren";
 			bindings = <
 				LEADING_NONES
-				&kp LBRC                                    &kp LPAR  &kp RPAR  &mo LAYER_ID_PARENTHETICALS
+				&kp LBRC        &kp LPAR  &kp RPAR  &mo LAYER_ID_PARENTHETICALS
 				MIDDLE_NONES
-				&kp RBRC                                    &kp LBKT  &kp RBKT  &none
+				&kp RBRC        &kp LBKT  &kp RBKT  &none
 				TRAILING_NONES
 			>;
 		};
@@ -509,9 +511,9 @@
 			label = "Nav";
 			bindings = <
 				LEADING_NONES
-				&kp PG_UP                                   &kp HOME  &kp UP    &kp END
+				&kp PG_UP       &kp HOME  &kp UP    &kp END
 				MIDDLE_NONES
-				&kp PG_DN                                   &kp LEFT  &kp DOWN  &kp RIGHT
+				&kp PG_DN       &kp LEFT  &kp DOWN  &kp RIGHT
 				TRAILING_NONES
 			>;
 		};
@@ -526,6 +528,8 @@
 			>;
 		};
 		ARDUX_LAYER_CUSTOM
+
+
 		#if defined ARDUX_BIG
 		big_ardux_symbol {
 			label = "*Symbol*";
