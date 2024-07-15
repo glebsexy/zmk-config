@@ -14,16 +14,6 @@
     status = "okay";
 };
 
-// tap ctrl many times for bootloader
-ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
-)
-
-#define CUSTOM_THUMB \
-    &kp SPACE &kp ENTER &many_tap_bootloader
-
-
 // CONFIG
 #define COMBO_TIMEOUT 70
 #define COMBO_LAYERS 0
@@ -41,14 +31,20 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 #define LOT 8 // O-THUMB
 #define LIT 9 // I-THUMB
 
-#define DEF 0
-#define NAV 1
-#define SYM 2
-
 &sk {
     release-after-ms = <STICKY_TIMEOUT>;
     quick-release;
 };
+
+#define DEF 0
+#define NAV 1
+#define SYM 2
+
+// tap ctrl many times for bootloader
+ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&m_reset>, <&none>, <&bootloader>;
+)
 
 ZMK_COMBO(lay_nav,      &to NAV,     LIT,    DEF)
 
@@ -56,6 +52,30 @@ ZMK_COMBO(lay_nav,      &to NAV,     LIT,    DEF)
   combos {
     compatible = "zmk,combos";
     #include "taipo.dtsi"
+  };
+
+  macros {
+    m_release_mods: m_release_mods {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings =
+        <&macro_release &kp LSHFT>,
+        <&macro_release &kp LALT>,
+        <&macro_release &kp LEFT_GUI>,
+        <&macro_release &kp LCTRL>,
+        <&macro_release &kp RSHFT>,
+        <&macro_release &kp RALT>,
+        <&macro_release &kp RIGHT_GUI>,
+        <&macro_release &kp RCTRL>;
+    };
+
+    m_reset: m_reset {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings =
+        <&m_release_mods>,
+        <&to DEF>;
+    };
   };
 
   keymap {
@@ -74,7 +94,7 @@ ZMK_COMBO(lay_nav,      &to NAV,     LIT,    DEF)
       bindings = <
         &kp LSHIFT    &kp LALT      &kp UP        &kp DOWN
         &kp LCMD      &kp LCTRL     &kp RIGHT     &kp LEFT
-        &to DEF       &none        &many_tap_bootloader
+        &to DEF       &trans        &trans
       >;
       sensor-bindings = <&inc_dec_kp UP DOWN>;
     };
