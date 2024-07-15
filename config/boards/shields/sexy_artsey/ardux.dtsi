@@ -347,6 +347,9 @@
 				CUSTOM_THUMB
 				#endif
 			>;
+			#if defined SENSOR_BINDINGS
+			sensor-bindings = <SENSOR_BINDINGS>;
+			#endif
 		};
 		#endif
 		numbers {
