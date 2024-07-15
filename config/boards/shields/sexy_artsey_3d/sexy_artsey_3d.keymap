@@ -58,4 +58,4 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 	&inc_dec_kp C_VOL_UP C_VOL_DN
 
 // Include main ardux.io keymap
-#include "/ardux.dtsi"
+#include "ardux.dtsi"
