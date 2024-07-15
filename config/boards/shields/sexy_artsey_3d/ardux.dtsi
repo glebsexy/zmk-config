@@ -459,7 +459,7 @@
 		};
 		#else
 
-		
+
 		base {
 			label = "ARDUX";
 			bindings = <
@@ -523,7 +523,7 @@
 				LEADING_NONES
 				ARDUX_BT_TOP    &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
 				MIDDLE_NONES
-				ARDUX_BT_BOTTOM &bt BT_SEL 5 &bt BT_SEL 4 &bt BT_SEL 3
+				ARDUX_BT_BOTTOM &bootloader &bt BT_SEL 4 &bt BT_SEL 3
 				TRAILING_NONES
 			>;
 		};

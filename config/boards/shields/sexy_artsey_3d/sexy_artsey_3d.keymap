@@ -34,8 +34,8 @@
 
 // tap ctrl many times for bootloader
 ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
-    tapping-term-ms = <100>;
-    bindings = <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
+    tapping-term-ms = <200>;
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <&bootloader>;
 )
 
 #define CUSTOM_THUMB \
