@@ -1,3 +1,5 @@
+// https://github.com/dlip/zmk-taipo/blob/main/config/taipo.dtsi
+
 #define TCOMBO(NAME, BINDINGS, OUTER_BINDINGS, INNER_BINDINGS, BOTH_BINDINGS, LEFT_KEYPOS) \
 combo_l_##NAME { \
   timeout-ms = <COMBO_TIMEOUT>; \
@@ -71,8 +73,9 @@ TCOMBO(MINUS,  &kp MINUS,  &kp UNDER,  &kp PRCNT,  &none,        TLM BLR)
 TCOMBO(QMARK,  &kp QMARK,  &kp EXCL,   &kp CAPS,   &none,        TLI BLM)
 TCOMBO(COMMA,  &kp COMMA,  &kp DOT,    &kp TILDE,  &none,        TLM BLI)
 TCOMBO(SEMI,   &kp SEMI,   &kp COLON,  &none,      &none,        TLP BLR)
-TCOMBO(SEMI2,  &kp SEMI,   &kp COLON,  &none,      &none,        BLR TLM BLI)
+//             ' single    " double    ` tilde
 TCOMBO(SQT,    &kp SQT,    &kp DQT,    &kp GRAVE,  &none,        TLR BLP)
+TCOMBO(SEMI2,  &kp SEMI,   &kp COLON,  &none,      &none,        BLR TLM BLI)
 TCOMBO(SQT2,   &kp SQT,    &kp DQT,    &kp GRAVE,  &none,        BLR TLM TLI)
 TCOMBO(TAB,    &kp TAB,    &kp DEL,    &kp INS,    &bt BT_CLR,   TLR TLM TLI)
 TCOMBO(ENTER,  &kp ENTER,  &kp ESC,    &kp LALT,   &bootloader,  BLR BLM BLI)
