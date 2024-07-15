@@ -10,24 +10,6 @@
 #include "../../../../zmk-nodefree-config/helper.h"
 // https://github.com/urob/zmk-nodefree-config
 
-#define ARDUX_LEFT 1
-
-// ARTS Row
-#define KEY_A 0
-#define KEY_R 1
-#define KEY_T 2
-#define KEY_S 3
-// EYIO Row
-#define KEY_E 4
-#define KEY_Y 5
-#define KEY_I 6
-#define KEY_O 7
-
-// Define Offsets
-#define LEADING_NONES NONE(0, 0, 0)
-#define MIDDLE_NONES NONE(0, 0, 0)
-#define TRAILING_NONES NONE(0, 0, 0)
-
 &left_encoder {
     status = "okay";
 };
@@ -41,21 +23,44 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
 #define CUSTOM_THUMB \
     &kp SPACE &kp ENTER &many_tap_bootloader
 
-#define ARDUX_LAYER_CUSTOM                                          \
-	custom {                                                       \
-		label = "Custom";                                          \
-		bindings = <                                               \
-			LEADING_NONES                                          \
-			&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
-			MIDDLE_NONES                                           \
-			&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp PSCRN &sk RSHFT  \
-			TRAILING_NONES                                         \
-			CUSTOM_THUMB                                           \
-		>;                                                         \
-	};
 
-#define SENSOR_BINDINGS \
-	&inc_dec_kp C_VOL_UP C_VOL_DN
+// CONFIG
+#define COMBO_TIMEOUT 70
+#define COMBO_LAYERS 0
+#define STICKY_TIMEOUT 500
 
-// Include main ardux.io keymap
-#include "ardux.dtsi"
+// LEFT SIDE
+#define TLI 0 // TOP INDEX
+#define TLM 1 // TOP MIDDLE
+#define TLR 2 // TOP RING
+#define TLP 3 // TOP PINKY
+#define BLI 4 // BOTTOM INDEX
+#define BLM 5 // BOTTOM MIDDLE
+#define BLR 6 // BOTTOM RING
+#define BLP 7 // BOTTOM PINKY
+#define LOT 9 // O-THUMB
+#define LIT 8 // I-THUMB
+
+&sk {
+    release-after-ms = <STICKY_TIMEOUT>;
+    quick-release;
+};
+
+/ {
+  combos {
+    compatible = "zmk,combos";
+    #include "taipo.dtsi"
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    base {
+      bindings = <
+        &none           &none            &none             &none
+        &none           &none            &none             &none
+        &kp LSHIFT &kp ENTER &many_tap_bootloader
+      >;
+    };
+  };
+};

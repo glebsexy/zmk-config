@@ -1,4 +1,4 @@
-#define TCOMBO(NAME, BINDINGS, OUTER_BINDINGS, INNER_BINDINGS, LEFT_KEYPOS) \
+#define TCOMBO(NAME, BINDINGS, OUTER_BINDINGS, INNER_BINDINGS, BOTH_BINDINGS, LEFT_KEYPOS) \
 combo_l_##NAME { \
   timeout-ms = <COMBO_TIMEOUT>; \
   bindings = <BINDINGS>; \
@@ -16,20 +16,19 @@ combo_lo_##NAME { \
   bindings = <OUTER_BINDINGS>; \
   key-positions = <LEFT_KEYPOS LOT>; \
   layers = <COMBO_LAYERS>; \
-};
+}; \
+combo_lb_##NAME { \
+  timeout-ms = <COMBO_TIMEOUT>; \
+  bindings = <BOTH_BINDINGS>; \
+  key-positions = <LEFT_KEYPOS LIT LOT>; \
+  layers = <COMBO_LAYERS>; \
+}; \
 
 
 combo_l_space { \
   timeout-ms = <COMBO_TIMEOUT>; \
   bindings = <&kp SPACE>; \
   key-positions = <LOT>; \
-  layers = <COMBO_LAYERS>; \
-};
-
-combo_r_space { \
-  timeout-ms = <COMBO_TIMEOUT>; \
-  bindings = <&kp SPACE>; \
-  key-positions = <ROT>; \
   layers = <COMBO_LAYERS>; \
 };
 
@@ -40,50 +39,44 @@ combo_l_bspc { \
   layers = <COMBO_LAYERS>; \
 };
 
-combo_r_bspc { \
-  timeout-ms = <COMBO_TIMEOUT>; \
-  bindings = <&kp BSPC>; \
-  key-positions = <RIT>; \
-  layers = <COMBO_LAYERS>; \
-};
-
-TCOMBO(R,      &kp R,      &kp LS(R), &kp GT,     &kp PSCRN,    TLP)
-TCOMBO(S,      &kp S,      &kp LS(S), &kp RBRC,   &kp C_BRI_UP, TLR)
-TCOMBO(N,      &kp N,      &kp LS(N), &kp RBKT,   &kp C_BRI_DN, TLM)
-TCOMBO(I,      &kp I,      &kp LS(I), &kp RPAR,   &kp C_PP,     TLI)
-TCOMBO(A,      &kp A,      &kp LS(A), &kp LT,     &kp C_NEXT,   BLP)
-TCOMBO(O,      &kp O,      &kp LS(O), &kp LBRC,   &kp C_VOL_UP, BLR)
-TCOMBO(T,      &kp T,      &kp LS(T), &kp LBKT,   &kp C_VOL_DN, BLM)
-TCOMBO(E,      &kp E,      &kp LS(E), &kp LPAR,   &kp C_PREV,   BLI)
-TCOMBO(C,      &kp C,      &kp LS(C), &kp N1,     &kp F1,       BLR BLI)
-TCOMBO(U,      &kp U,      &kp LS(U), &kp N2,     &kp F2,       BLR BLM)
-TCOMBO(Q,      &kp Q,      &kp LS(Q), &kp N3,     &kp F3,       BLP BLM)
-TCOMBO(L,      &kp L,      &kp LS(L), &kp N4,     &kp F4,       BLP BLR)
-TCOMBO(Y,      &kp Y,      &kp LS(Y), &kp N5,     &kp F5,       TLM TLI)
-TCOMBO(F,      &kp F,      &kp LS(F), &kp N6,     &kp F6,       TLR TLI)
-TCOMBO(P,      &kp P,      &kp LS(P), &kp N7,     &kp F7,       TLR TLM)
-TCOMBO(Z,      &kp Z,      &kp LS(Z), &kp N8,     &kp F8,       TLP TLM)
-TCOMBO(B,      &kp B,      &kp LS(B), &kp N9,     &kp F9,       TLP TLR)
-TCOMBO(H,      &kp H,      &kp LS(H), &kp N0,     &kp F10,      BLM BLI)
-TCOMBO(D,      &kp D,      &kp LS(D), &kp AT,     &kp F11,      BLP BLI)
-TCOMBO(G,      &kp G,      &kp LS(G), &kp HASH,   &kp F12,      TLP TLI)
-TCOMBO(X,      &kp X,      &kp LS(X), &kp CARET,  &kp LC(X),    TLP BLM)
-TCOMBO(K,      &kp K,      &kp LS(K), &kp PLUS,   &kp LC(C),    TLI BLR)
-TCOMBO(V,      &kp V,      &kp LS(V), &kp STAR,   &kp LC(V),    TLR BLI)
-TCOMBO(J,      &kp J,      &kp LS(J), &kp EQUAL,  &kp LC(Z),    TLM BLP)
-TCOMBO(M,      &kp M,      &kp LS(M), &kp DOLLAR, &none,        TLP BLI)
-TCOMBO(W,      &kp W,      &kp LS(W), &kp AMPS,   &none,        TLI BLP)
-TCOMBO(SLASH,  &kp SLASH,  &kp BSLH,  &kp PIPE,   &none,        TLR BLM)
-TCOMBO(MINUS,  &kp MINUS,  &kp UNDER, &kp PRCNT,  &none,        TLM BLR)
-TCOMBO(QMARK,  &kp QMARK,  &kp EXCL,  &kp CAPS,   &none,        TLI BLM)
-TCOMBO(COMMA,  &kp COMMA,  &kp DOT,   &kp TILDE,  &none,        TLM BLI)
-TCOMBO(SEMI,   &kp SEMI,   &kp COLON, &none,      &none,        TLP BLR)
-TCOMBO(SEMI2,  &kp SEMI,   &kp COLON, &none,      &none,        BLR TLM BLI)
-TCOMBO(SQT,    &kp SQT,    &kp DQT,   &kp GRAVE,  &none,        TLR BLP)
-TCOMBO(SQT2,   &kp SQT,    &kp DQT,   &kp GRAVE,  &none,        BLR TLM TLI)
-TCOMBO(TAB,    &kp TAB,    &kp DEL,   &kp INS,    &bt BT_CLR,   TLR TLM TLI)
-TCOMBO(ENTER,  &kp ENTER,  &kp ESC,   &kp LALT,   &bootloader,  BLR BLM BLI)
-TCOMBO(LGUI,   &sk LGUI,   &kp RIGHT, &kp PGUP,   &bt BT_SEL 3, TLP BLP)
-TCOMBO(LALT,   &sk LALT,   &kp UP,    &kp HOME,   &bt BT_SEL 2, TLR BLR)
-TCOMBO(LCTRL,  &sk LCTRL,  &kp DOWN,  &kp END,    &bt BT_SEL 1, TLM BLM)
-TCOMBO(LSHIFT, &sk LSHIFT, &kp LEFT,  &kp PGDN,   &bt BT_SEL 0, TLI BLI)
+//             single      • outer     • inner     • both
+TCOMBO(R,      &kp R,      &kp LS(R),  &kp GT,     &kp PSCRN,    TLP)
+TCOMBO(S,      &kp S,      &kp LS(S),  &kp RBRC,   &kp C_BRI_UP, TLR)
+TCOMBO(N,      &kp N,      &kp LS(N),  &kp RBKT,   &kp C_BRI_DN, TLM)
+TCOMBO(I,      &kp I,      &kp LS(I),  &kp RPAR,   &kp C_PP,     TLI)
+TCOMBO(A,      &kp A,      &kp LS(A),  &kp LT,     &kp C_NEXT,   BLP)
+TCOMBO(O,      &kp O,      &kp LS(O),  &kp LBRC,   &kp C_VOL_UP, BLR)
+TCOMBO(T,      &kp T,      &kp LS(T),  &kp LBKT,   &kp C_VOL_DN, BLM)
+TCOMBO(E,      &kp E,      &kp LS(E),  &kp LPAR,   &kp C_PREV,   BLI)
+TCOMBO(C,      &kp C,      &kp LS(C),  &kp N1,     &kp F1,       BLR BLI)
+TCOMBO(U,      &kp U,      &kp LS(U),  &kp N2,     &kp F2,       BLR BLM)
+TCOMBO(Q,      &kp Q,      &kp LS(Q),  &kp N3,     &kp F3,       BLP BLM)
+TCOMBO(L,      &kp L,      &kp LS(L),  &kp N4,     &kp F4,       BLP BLR)
+TCOMBO(Y,      &kp Y,      &kp LS(Y),  &kp N5,     &kp F5,       TLM TLI)
+TCOMBO(F,      &kp F,      &kp LS(F),  &kp N6,     &kp F6,       TLR TLI)
+TCOMBO(P,      &kp P,      &kp LS(P),  &kp N7,     &kp F7,       TLR TLM)
+TCOMBO(Z,      &kp Z,      &kp LS(Z),  &kp N8,     &kp F8,       TLP TLM)
+TCOMBO(B,      &kp B,      &kp LS(B),  &kp N9,     &kp F9,       TLP TLR)
+TCOMBO(H,      &kp H,      &kp LS(H),  &kp N0,     &kp F10,      BLM BLI)
+TCOMBO(D,      &kp D,      &kp LS(D),  &kp AT,     &kp F11,      BLP BLI)
+TCOMBO(G,      &kp G,      &kp LS(G),  &kp HASH,   &kp F12,      TLP TLI)
+TCOMBO(X,      &kp X,      &kp LS(X),  &kp CARET,  &kp LC(X),    TLP BLM)
+TCOMBO(K,      &kp K,      &kp LS(K),  &kp PLUS,   &kp LC(C),    TLI BLR)
+TCOMBO(V,      &kp V,      &kp LS(V),  &kp STAR,   &kp LC(V),    TLR BLI)
+TCOMBO(J,      &kp J,      &kp LS(J),  &kp EQUAL,  &kp LC(Z),    TLM BLP)
+TCOMBO(M,      &kp M,      &kp LS(M),  &kp DOLLAR, &none,        TLP BLI)
+TCOMBO(W,      &kp W,      &kp LS(W),  &kp AMPS,   &none,        TLI BLP)
+TCOMBO(SLASH,  &kp SLASH,  &kp BSLH,   &kp PIPE,   &none,        TLR BLM)
+TCOMBO(MINUS,  &kp MINUS,  &kp UNDER,  &kp PRCNT,  &none,        TLM BLR)
+TCOMBO(QMARK,  &kp QMARK,  &kp EXCL,   &kp CAPS,   &none,        TLI BLM)
+TCOMBO(COMMA,  &kp COMMA,  &kp DOT,    &kp TILDE,  &none,        TLM BLI)
+TCOMBO(SEMI,   &kp SEMI,   &kp COLON,  &none,      &none,        TLP BLR)
+TCOMBO(SEMI2,  &kp SEMI,   &kp COLON,  &none,      &none,        BLR TLM BLI)
+TCOMBO(SQT,    &kp SQT,    &kp DQT,    &kp GRAVE,  &none,        TLR BLP)
+TCOMBO(SQT2,   &kp SQT,    &kp DQT,    &kp GRAVE,  &none,        BLR TLM TLI)
+TCOMBO(TAB,    &kp TAB,    &kp DEL,    &kp INS,    &bt BT_CLR,   TLR TLM TLI)
+TCOMBO(ENTER,  &kp ENTER,  &kp ESC,    &kp LALT,   &bootloader,  BLR BLM BLI)
+TCOMBO(LGUI,   &sk LGUI,   &kp RIGHT,  &kp PGUP,   &bt BT_SEL 3, TLP BLP)
+TCOMBO(LALT,   &sk LALT,   &kp UP,     &kp HOME,   &bt BT_SEL 2, TLR BLR)
+TCOMBO(LCTRL,  &sk LCTRL,  &kp DOWN,   &kp END,    &bt BT_SEL 1, TLM BLM)
+TCOMBO(LSHIFT, &sk LSHIFT, &kp LEFT,   &kp PGDN,   &bt BT_SEL 0, TLI BLI)
