@@ -61,6 +61,7 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
         &none       &none        &none         &none
         &none       &none        &many_tap_bootloader
       >;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
