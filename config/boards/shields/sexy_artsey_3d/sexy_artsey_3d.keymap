@@ -32,13 +32,13 @@
 #define LIT 8 // I-THUMB
 
 &sk {
-    release-after-ms = <STICKY_TIMEOUT>;
-    quick-release;
+  release-after-ms = <STICKY_TIMEOUT>;
+  quick-release;
 };
 
 #define DEF 0
 #define NAV 1
-#define SYM 2
+#define SHORTCUT 2
 
 // tap ctrl many times for bootloader
 ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
@@ -46,9 +46,24 @@ ZMK_BEHAVIOR(many_tap_bootloader, tap_dance,
     bindings = <&m_reset>, <&none>, <&bootloader>;
 )
 
-ZMK_COMBO(lay_nav,      &to NAV,     LIT,              DEF)
-ZMK_COMBO(thumb_space,  &kp SPACE,   LOT,              DEF)
-ZMK_COMBO(all_reset,    &m_reset,    BLP BLR BLM BLI,  DEF)
+// tap shift twice for capsword
+ZMK_BEHAVIOR(dt_capsword, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&kp RSHIFT>, <&caps_word>;
+)
+
+// layer hold tap slow for nav/shortcut
+ZMK_BEHAVIOR(mt_s, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <100>;
+    global-quick-tap;
+    quick-tap-ms = <100>;
+    bindings = <&mo>, <&to>;
+)
+
+// ZMK_COMBO(lay_nav,      &to NAV,           LIT,              DEF)
+// ZMK_COMBO(thumb_space,  &kp SPACE,         LOT,              DEF)
+ZMK_COMBO(mod_reset,    &m_release_mods,   BLP BLR BLM BLI,  DEF)
 
 / {
   combos {
@@ -87,7 +102,9 @@ ZMK_COMBO(all_reset,    &m_reset,    BLP BLR BLM BLI,  DEF)
       bindings = <
         &none       &none        &none         &none
         &none       &none        &none         &none
-        &none       &none        &many_tap_bootloader
+        &mt_s NAV SHORTCUT  // inner thumb
+        &kp SPACE   // outer thumb
+        &many_tap_bootloader  // encoder push
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
@@ -99,6 +116,15 @@ ZMK_COMBO(all_reset,    &m_reset,    BLP BLR BLM BLI,  DEF)
         &to DEF       &trans        &trans
       >;
       sensor-bindings = <&inc_dec_kp UP DOWN>;
+    };
+
+    shortcut {
+      bindings = <
+        &kp LSHIFT    &kp LALT      &kp LC(C)      &kp LC(Z)
+        &kp LCMD      &kp LCTRL     &kp LC(V)      &kp LC(LS(Z))
+        &trans        &trans        &trans
+      >;
+      sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
     };
   };
 };
